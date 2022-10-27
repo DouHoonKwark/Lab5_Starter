@@ -1,3 +1,3 @@
 # Lab 5 - Starter
-Brendan Devlin
+Brendan Devlin <br>
 Dou Hoon Kwark
