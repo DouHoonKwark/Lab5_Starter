@@ -3,5 +3,5 @@ Brendan Devlin <br>
 Dou Hoon Kwark
 
 <br>
-[Expose](expose.html) <br>
-[Explore](explore.html)
+[Expose](https://douhoonkwark.github.io/Lab5_Starter/expose.html) <br>
+[Explore](https://douhoonkwark.github.io/Lab5_Starter/explore.html)
