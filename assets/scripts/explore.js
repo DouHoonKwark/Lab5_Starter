@@ -9,19 +9,13 @@ function init() {
   const voiceSelector = document.querySelector('select');
   const textFieldInput = document.getElementById('text-to-speak'); 
   const buttons = document.getElementsByTagName('button');   
-
+  const faceImageInList = document.getElementsByTagName('img');   
 
   const speechSynth = window.speechSynthesis;
-  /*
-  const inputForm = document.querySelector('form');
-  const inputTxt = document.querySelector('.txt');
-  const pitch = document.querySelector('#pitch');
-  const pitchValue = document.querySelector('.pitch-value');
-  const rate = document.querySelector('#rate');
-  const rateValue = document.querySelector('.rate-value'); */
-  
+
+
+
   let voicesList = [];
-  
   function populateVoiceList() {                                            //populating selection list with voices
     voicesList = speechSynth.getVoices();
   
@@ -45,6 +39,8 @@ function init() {
     speechSynthesis.onvoiceschanged = populateVoiceList;
   }
 
+
+
   buttons[0].addEventListener('click', (event) => {                                     //button clicked
     event.preventDefault();
 
@@ -60,8 +56,19 @@ function init() {
     utterance.text = textFieldInput.value;      //set text to be spoken to be text in field
     speechSynth.speak(utterance);             //speak it
 
-  });
+    function checkIfStillSpeaking(){
+        if (speechSynth.speaking) {
+            faceImageInList[0].src = "assets/images/smiling-open.png";
+        } else {
+            faceImageInList[0].src = "assets/images/smiling.png";
+        }
 
+    }
+      //() => speechSynth.speaking;
+      setInterval(checkIfStillSpeaking);    //default delay is 0 ms
+
+
+  });
 
 
 }
