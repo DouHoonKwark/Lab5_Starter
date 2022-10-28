@@ -2,17 +2,13 @@
 
 window.addEventListener('DOMContentLoaded', init);
 
-
-
 function init() {
-  
   const voiceSelector = document.querySelector('select');
   const textFieldInput = document.getElementById('text-to-speak'); 
   const buttons = document.getElementsByTagName('button');   
   const faceImageInList = document.getElementsByTagName('img');   
 
   const speechSynth = window.speechSynthesis;
-
 
 
   let voicesList = [];
@@ -26,7 +22,6 @@ function init() {
       if (voicesList[i].default) {
         option.textContent += ' — DEFAULT';
       }
-  
       option.setAttribute('data-lang', voicesList[i].lang);
       option.setAttribute('data-name', voicesList[i].name);
       voiceSelector.appendChild(option);
@@ -38,8 +33,6 @@ function init() {
   if (speechSynthesis.onvoiceschanged !== undefined) {
     speechSynthesis.onvoiceschanged = populateVoiceList;
   }
-
-
 
   buttons[0].addEventListener('click', (event) => {                                     //button clicked
     event.preventDefault();
