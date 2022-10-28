@@ -49,17 +49,20 @@ function init() {
     utterance.text = textFieldInput.value;      //set text to be spoken to be text in field
     speechSynth.speak(utterance);             //speak it
 
-    function checkIfStillSpeaking(){
+    /*function checkIfStillSpeaking(){
         if (speechSynth.speaking) {
             faceImageInList[0].src = "assets/images/smiling-open.png";
         } else {
             faceImageInList[0].src = "assets/images/smiling.png";
         }
 
+    }*/
+    const checkIfStillSpeaking = () => {        //above function converted to arrow notation with JS ternary assignment, for practice with JS
+      speechSynthesis.speaking ? faceImageInList[0].src = "assets/images/smiling-open.png" : faceImageInList[0].src = "assets/images/smiling.png";
     }
-      //() => speechSynth.speaking;
-      setInterval(checkIfStillSpeaking);    //default delay is 0 ms
 
+
+    setInterval(checkIfStillSpeaking);    //default delay is 0 ms
 
   });
 

@@ -53,7 +53,10 @@ function init() {
 
   buttons[0].addEventListener('click', (event) => {           //button gets clicked event, receiving correctly, need to play
     if(soundChoice.value == 'party-horn'){
-      jsConfetti.addConfetti();
+      jsConfetti.addConfetti({
+        emojis: ['💥', '✨'],
+        confettiNumber: 150
+     });
     }
     soundChosen.play(); //play sound 
   });
