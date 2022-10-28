@@ -7,7 +7,9 @@ window.addEventListener('DOMContentLoaded', init);
 function init() {
   
   const voiceSelector = document.querySelector('select');
+  const textFieldInput = document.getElementById('text-to-speak'); 
   const buttons = document.getElementsByTagName('button');   
+
 
   const speechSynth = window.speechSynthesis;
   /*
@@ -47,17 +49,16 @@ function init() {
     event.preventDefault();
 
     const selectedOption = voiceSelector.selectedOptions[0].getAttribute('data-name');
-    const utterance = new SpeechSynthesisUtterance('Hello There, General Kenobi');      //hardcoded output using all different speech patterns
+    const utterance = new SpeechSynthesisUtterance('');      
 
     for (let i = 0; i < voicesList.length ; i++) {
-      if (voicesList[i].name === selectedOption) {
+      if (voicesList[i].name === selectedOption) {    //set voice to be spoken to be selected voice
         utterance.voice = voicesList[i];
       }
     }
 
-    speechSynth.speak(utterance);
-
-
+    utterance.text = textFieldInput.value;      //set text to be spoken to be text in field
+    speechSynth.speak(utterance);             //speak it
 
   });
 
